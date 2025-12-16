@@ -4,6 +4,7 @@ services:
     env: php
     plan: free
     region: singapore
+    rootDirectory: backend-servis
     buildCommand: |
       composer install --no-dev --optimize-autoloader
       php artisan config:cache
@@ -54,6 +55,3 @@ databases:
     region: singapore
     databaseName: servisin_db
     user: servisin_user
-
-# Note: Render Free Tier for PostgreSQL expires after 90 days if not upgraded, 
-# but you can create a new one. It spins down after inactivity.
