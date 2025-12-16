@@ -5,7 +5,7 @@
 Fitur ini memungkinkan teknisi untuk mengupload dokumen KTP dan sertifikat keahlian saat pendaftaran.
 
 ## ✅ Fitur yang Ditambahkan
-
+   
 1. **Upload KTP** (Wajib)
    - Format: JPG, PNG, atau PDF
    - Maksimal ukuran: 5MB
