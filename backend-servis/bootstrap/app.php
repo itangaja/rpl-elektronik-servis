@@ -21,6 +21,18 @@ return Application::configure(basePath: dirname(__DIR__))
     })->create();
 
 // Vercel Read-Only Filesystem Fix
-$app->useStoragePath($_ENV['VERCEL'] ?? false ? '/tmp/storage' : base_path('storage'));
+if (isset($_ENV['VERCEL'])) {
+    $path = '/tmp/storage';
+    $app->useStoragePath($path);
+    
+    // Create directories if not exist
+    if (!is_dir($path)) {
+        mkdir($path, 0777, true);
+        mkdir($path . '/framework/views', 0777, true);
+        mkdir($path . '/framework/cache', 0777, true);
+        mkdir($path . '/framework/sessions', 0777, true);
+        mkdir($path . '/logs', 0777, true);
+    }
+}
 
 return $app;
