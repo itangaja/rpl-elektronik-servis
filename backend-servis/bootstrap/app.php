@@ -19,3 +19,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
+
+// Vercel Read-Only Filesystem Fix
+$app->useStoragePath($_ENV['VERCEL'] ?? false ? '/tmp/storage' : base_path('storage'));
+
+return $app;
