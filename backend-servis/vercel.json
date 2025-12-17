@@ -2,8 +2,9 @@
     "version": 2,
     "framework": null,
     "functions": {
-        "api/*.php": { "runtime": "vercel-php@0.6.0" },
-        "public/index.php": { "runtime": "vercel-php@0.6.0" }
+        "public/index.php": {
+            "runtime": "vercel-php@0.6.0"
+        }
     },
     "routes": [
         {
@@ -14,7 +15,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_KEY": "base64:YOUR_APP_KEY_HERE_BUT_SET_IN_VERCEL_ENV", 
+        "APP_KEY": "base64:YOUR_APP_KEY_HERE_BUT_SET_IN_VERCEL_ENV",
         "APP_URL": "https://${VERCEL_PROJECT_NAME}.vercel.app"
     }
 }
