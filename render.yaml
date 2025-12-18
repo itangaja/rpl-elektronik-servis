@@ -1,13 +1,11 @@
 services:
-  # Backend Service (Laravel)
+  # Backend Service (Laravel via Docker)
   - type: web
     name: servis-elektronik-backend
-    env: php
+    env: docker
     plan: free
     region: singapore
     rootDir: backend-servis
-    buildCommand: composer install --no-dev --optimize-autoloader && php artisan config:cache && php artisan migrate --force
-    startCommand: vendor/bin/heroku-php-apache2 public/
     envVars:
       - key: APP_KEY
         generateValue: true
@@ -24,12 +22,12 @@ services:
       - key: SESSION_DRIVER
         value: cookie
 
-  # Frontend Service (React/Vite)
+  # Frontend Service (React/Vite Static Site)
   - type: web
     name: servis-elektronik-frontend
     env: static
     plan: free
-    region: singapore
+    # Region removed (Static sites are global)
     rootDir: frontend-web
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
@@ -50,5 +48,3 @@ databases:
     region: singapore
     databaseName: servis_db
     user: servis_user
-
-# Note: Fixed "type: static" to "type: web" with "env: static"
