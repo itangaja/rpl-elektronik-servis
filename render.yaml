@@ -12,7 +12,7 @@ services:
       - key: APP_KEY
         generateValue: true
       - key: APP_DEBUG
-        value: false
+        value: "false"
       - key: APP_NAME
         value: ServisElektronik
       - key: DB_CONNECTION
@@ -25,7 +25,7 @@ services:
         value: cookie
 
   # Frontend Service (React/Vite)
-  - type: static
+  - type: web
     name: servis-elektronik-frontend
     env: static
     plan: free
@@ -51,4 +51,4 @@ databases:
     databaseName: servis_db
     user: servis_user
 
-# Note: "region: singapore" is selected for best latency with Indonesia.
+# Note: Fixed "type: static" to "type: web" with "env: static"
