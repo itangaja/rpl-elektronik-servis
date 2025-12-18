@@ -2,12 +2,19 @@
     "$schema": "https://www.schemastore.org/package.json",
     "private": true,
     "type": "module",
+    "dependencies": {
+        "lucide-react": "^0.294.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.20.0"
+    },
     "scripts": {
         "build": "vite build",
         "dev": "vite"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
+        "@vitejs/plugin-react": "^5.1.2",
         "axios": "^1.11.0",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^2.0.0",
